@@ -25,6 +25,7 @@ function GoogleLogInOut () {
             }
             catch{
                 await axios.post(`${BASE_URL}/user`, user)
+                console.log("user created")
             }
             
         }

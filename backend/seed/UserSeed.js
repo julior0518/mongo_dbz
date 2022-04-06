@@ -14,7 +14,7 @@ const mainSeed = async () => {
             'https://3docean.img.customer.envatousercontent.com/files/252369519/taco_pv.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=d2f1767e3cd0f28c1a3c4dd8d70a8edf'
         },
         {
-        _id:2,
+        _id:2, 
         name: 'UserSeed2 ',
         email: 'this is cat user',
         image: 'https://wallpapercave.com/wp/wp5048642.jpg'
