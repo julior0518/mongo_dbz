@@ -17,7 +17,6 @@ function InputDynamic ({allKeys, setAllKeys}){
             inputType: ""
         })
     }
-    console.log(keys, allKeys)
     return (
         <div className="InputDynamic">
             <form>
@@ -26,10 +25,12 @@ function InputDynamic ({allKeys, setAllKeys}){
                     value={keys.key}
                     placeholder="key"
                     onChange={(e)=>add(e)}
+                    required
                 />
 
                 <label >Choose data type:</label>
-                <select id="inputType" name="inputType" onChange={(e)=>add(e)}>
+                <select id="inputType" required name="inputType" onChange={(e)=>add(e)}>
+                    <option value={null}/>
                     <option value="string">String</option>
                     <option value="number">Number</option>
                     <option value="array">Array</option>
