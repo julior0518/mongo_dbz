@@ -41,7 +41,7 @@ function CreateModel() {
                 {allKeys.map((k, i)=>(
                     <div key={i}>
                         {console.log(k,i)}
-                        <p>{`${k.key}: {${k.inputType}: require: true}`}</p>
+                        <p>{`${k.key}: {${k.inputType}},`}</p>
                     </div>
                 ))}
             
