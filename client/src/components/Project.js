@@ -7,6 +7,7 @@ import {BASE_URL} from '../globals'
 function Project ({user, setUser}) {
     const [load, setLoad] = useState(false)
     const [allKeys, setAllKeys] = useState([])
+    const [usersProjects, setUsersProjects] = useState('')
     const [model,setModel]=useState({
         modelTitle:"",
         modelKeys: []
@@ -25,29 +26,20 @@ function Project ({user, setUser}) {
     useEffect(()=>{
         setProject({...project, model: model})
     },[model])
-    const[projectExists, setProjectExists] = useState(false)
-
     useEffect(()=>{
         async function savedProjects(){
             // const res1 = await axios.get(`${BASE_URL}/project/${user?._id}/${project.projectName}`)
             // console.log(res1.data)
             const res =  await axios.get(`${BASE_URL}/project/${user?._id}`)
-            console.log(res.data)
-            res.data.esteProjectId.forEach((p,i) => {
-                (res.data.esteProjectId[i].projectName === project.projectName)
-                && setProjectExists(res.data.esteProjectId[i])
-            })
+            setUsersProjects(res.data.esteProjectId)
+            console.log(usersProjects)
         }
         savedProjects()
     },[user, project.projectName, load])
     
     async function updateProject(){
-        if(projectExists.projectName === project.projectName){
-            console.log('cant')
-        } else {
             await axios.post(`${BASE_URL}/project`, project)
             setLoad(!load)
-        }
     }
     console.log(project)
 
@@ -55,6 +47,12 @@ function Project ({user, setUser}) {
     
     return(
         <div className="Project">
+            {user 
+            && usersProjects.map((up,i)=>(
+            <div>
+                {up.projectName}
+            </div>
+            ))}
             <CreateModel  model={model} setModel={setModel} load={load} setLoad={setLoad} project={project} setProject={setProject} allKeys={allKeys} setAllKeys={setAllKeys}/>
             <button onClick={()=>updateProject()}>save</button>
         </div>
