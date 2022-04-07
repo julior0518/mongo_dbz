@@ -9,4 +9,10 @@ router.get('/user/:id', controllers.getUsersById);
 router.put('/user/:id', controllers.updateUser);
 router.delete('/user/:id', controllers.deleteUser);
 
+router.post('/project', controllers.createProject);
+router.get('/projects', controllers.getAllProjects);
+router.get('/project/:id', controllers.getProjectsById);
+router.put('/project/:id', controllers.updateProject);
+router.delete('/project/:id', controllers.deleteProject);
+
 module.exports = router;

@@ -6,9 +6,8 @@ import { BASE_URL } from '../globals'
 
 
 
-function GoogleLogInOut () {
+function GoogleLogInOut ({user, setUser}) {
     const clientId = process.env.REACT_APP_GOOGLE_OAUTH_ID
-    const [user, setUser]= useState()
     function googleAccount(res) {
         localStorage.setItem('user',JSON.stringify(res.profileObj))
         setUser ({

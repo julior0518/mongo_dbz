@@ -3,13 +3,15 @@ import { BASE_URL } from './globals'
 import axios from 'axios';
 import { Route, Switch} from 'react-router-dom'
 
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 
 
 import GoogleLogInOut from './components/googleLogInOut';
 import Project from './components/Project';
 
 function App() {
+  const [user, setUser]= useState()
+  
     // const axios = require('axios');
 
     // useEffect(()=> {
@@ -21,8 +23,8 @@ function App() {
 
     return (
       <div className="App">
-        <GoogleLogInOut />
-        <Project />
+          <GoogleLogInOut user={user} setUser={setUser} />
+        <Project user={user} setUser={setUser}/>
 
 
         <Switch>

@@ -1,4 +1,4 @@
-const { User, } = require('../models');
+const { User, Project } = require('../models');
 
 const getAllUsers = async (req, res) => {
     try {
@@ -19,9 +19,6 @@ const createUser = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 }; 
-
-
-
 const getUsersById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -34,7 +31,6 @@ const getUsersById = async (req, res) => {
         return res.status(500).send(error.message);
     }
 };
-
 const updateUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -51,7 +47,6 @@ const updateUser = async (req, res) => {
         return res.status(500).send(error.message);
     }
 }; 
-
 const deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -65,10 +60,78 @@ const deleteUser = async (req, res) => {
     }
 };
 
+
+const getAllProjects = async (req, res) => {
+    try {
+        const todosLosProjects = await Project.find();
+        return res.status(200).json({ todosLosProjects });
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+const createProject = async (req, res) => {
+    try {
+        const esteProject = await new Project(req.body);
+        await esteProject.save();
+        return res.status(201).json({
+        esteProject,
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+}; 
+const getProjectsById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const esteProjectId = await Project.findById(id);
+        if (esteProjectId) {
+        return res.status(200).json({ esteProjectId });
+        }
+        return res.status(404).send('This ID is not real');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+const updateProject = async (req, res) => {
+    try {
+        const { id } = req.params;
+        Project.findByIdAndUpdate(id, req.body, { new: true }, (err, user) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        if (!user) {
+            res.status(500).send('not found!');
+        }
+        return res.status(200).json(user);
+        });
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}; 
+const deleteProject = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleted = await Project.findByIdAndDelete(id);
+        if (deleted) {
+        return res.status(200).send('deleted');
+        }
+        throw new Error('not found');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+
+
 module.exports = {
-    createUser,
     getAllUsers,
+    createUser,
     getUsersById,
     updateUser,
     deleteUser,
+    
+    createProject,
+    getAllProjects,
+    getProjectsById,
+    updateProject,
+    deleteProject,
 }

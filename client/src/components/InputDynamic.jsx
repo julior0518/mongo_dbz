@@ -20,6 +20,7 @@ function InputDynamic ({ allKeys, setAllKeys, }){
         }
         e.preventDefault()
     }
+    
     return (
         <div className="InputDynamic">
             <form>
@@ -42,7 +43,7 @@ function InputDynamic ({ allKeys, setAllKeys, }){
                     <option value="type: String,">String: otional</option>
                     <option value="type: Date, required: true">Date: required</option>
                     <option value="type: Date,">Date: otional</option>
-                    <option value={`" type: Schema.Types.ObjectId, ref: '${keys.key}s', required "`}>OtherModelById: required</option>
+                    <option value={` type: Schema.Types.ObjectId, ref: '${keys.key}s', required: true `}>OtherModelById: required</option>
                     <option value={` type: Schema.Types.ObjectId, ref: '${keys.key}s', `}>OtherModelById: optional</option>
                 </select>
                 <button onClick={(e)=>{submit(e)}}> add </button>
