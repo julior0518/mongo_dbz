@@ -9,8 +9,7 @@ const mainSeed = async () => {
         {
             user_id: null,
             projectName: "1",
-            modelTitle: "1",
-            modelKeys: [1,2,3]
+            model: [1,2,3]
         }
     ];
     await Project.insertMany(Projects);

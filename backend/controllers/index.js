@@ -83,7 +83,7 @@ const createProject = async (req, res) => {
 const getProjectsById = async (req, res) => {
     try {
         const { id } = req.params;
-        const esteProjectId = await Project.findById(id);
+        const esteProjectId = await Project.find({user_id: id});
         if (esteProjectId) {
         return res.status(200).json({ esteProjectId });
         }
@@ -92,6 +92,20 @@ const getProjectsById = async (req, res) => {
         return res.status(500).send(error.message);
     }
 };
+const getProjectsByUserIdAndProjectName = async (req, res) => {
+    try {
+        const { id, projectName } = req.params;
+        const esteProjectId = await Project.find({user_id: id, projectName: projectName});
+        if (esteProjectId) {
+        return res.status(200).json({ esteProjectId });
+        }
+        return res.status(404).send('This ID is not real');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+
+
 const updateProject = async (req, res) => {
     try {
         const { id } = req.params;
@@ -134,4 +148,5 @@ module.exports = {
     getProjectsById,
     updateProject,
     deleteProject,
+    getProjectsByUserIdAndProjectName
 }

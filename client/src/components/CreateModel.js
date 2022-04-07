@@ -1,12 +1,14 @@
 import {useState} from 'react'
 import InputDynamic from './InputDynamic'
 
-function CreateModel({load, setLoad, project , setProject, allKeys, setAllKeys, }) {
-    const title = project.modelTitle
+function CreateModel({model, setModel, load, setLoad, project , setProject, allKeys, setAllKeys, }) {
+    const title = model.modelTitle
     function set(e){
         setProject({...project, [e.target.name]:e.target.value, })
     }
-    // setProject({modelKeys: allKeys})
+    function setb(e){
+        setModel({...model, [e.target.name]:e.target.value, })
+    }
     return(
         <div className="CreateModel">
             <input
@@ -17,10 +19,10 @@ function CreateModel({load, setLoad, project , setProject, allKeys, setAllKeys, 
                 required
             />
             <input
-                value={project.modelTitle}
+                value={model.modelTitle}
                 name="modelTitle"
                 placeholder="Model Title"
-                onChange={(e) => set(e)}
+                onChange={(e) => setb(e)}
                 required
             />
             <div className='modelsIndex'>
