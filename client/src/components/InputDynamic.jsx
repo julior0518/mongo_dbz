@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function InputDynamic ({ allKeys, setAllKeys, load, setLoad}){
+function InputDynamic ({ allKeys, setAllKeys, }){
     const [keys, setKeys] = useState({
         key: '',
         inputType: null,
@@ -17,7 +17,6 @@ function InputDynamic ({ allKeys, setAllKeys, load, setLoad}){
                 key: '',
                 inputType: ''
             })
-            setLoad(!load)
         }
         e.preventDefault()
     }

@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import InputDynamic from './InputDynamic'
 
-function CreateModel({project , setProject, allKeys, setAllKeys,load, setLoad}) {
+function CreateModel({load, setLoad, project , setProject, allKeys, setAllKeys, }) {
     const title = project.modelTitle
     function set(e){
         setProject({...project, [e.target.name]:e.target.value, })
@@ -29,11 +29,11 @@ function CreateModel({project , setProject, allKeys, setAllKeys,load, setLoad}) 
                 <p>const {title} = mongoose.model('{title}s', {title}Schema);</p>
                 <p>module.exports = {`{${title},}`} </p>
             </div>
-            <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys} load={load} setLoad={setLoad} />
+            <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys}  />
             <div>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
-                        <p onClick={()=> {allKeys.splice(i,1); }}>
+                        <p onClick={()=> {allKeys.splice(i,1); setLoad(!load) }}>
                             {`${k.key}`}
                         </p>
                     </div>

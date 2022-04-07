@@ -17,7 +17,7 @@ function Project () {
     console.log(project)
     return(
         <div className="Project">
-            <CreateModel load={load} setLoad={setLoad} project={project} setProject={setProject} allKeys={allKeys} setAllKeys={setAllKeys}/>
+            <CreateModel  load={load} setLoad={setLoad} project={project} setProject={setProject} allKeys={allKeys} setAllKeys={setAllKeys}/>
         </div>
     )
 }
