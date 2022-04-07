@@ -25,16 +25,31 @@ function Project ({user, setUser}) {
     useEffect(()=>{
         setProject({...project, model: model})
     },[model])
+    const[projectExists, setProjectExists] = useState(false)
 
-
-    // async function updateProject(){
-    //     await axios.post(`${BASE_URL}/project`, project)
-    // }
-    async function updateProject(){
-            await axios.post(`${BASE_URL}/project`, project)
-            const res = await axios.get(`${BASE_URL}/project/${user?._id}`)
+    useEffect(()=>{
+        async function savedProjects(){
+            // const res1 = await axios.get(`${BASE_URL}/project/${user?._id}/${project.projectName}`)
+            // console.log(res1.data)
+            const res =  await axios.get(`${BASE_URL}/project/${user?._id}`)
             console.log(res.data)
+            res.data.esteProjectId.forEach((p,i) => {
+                (res.data.esteProjectId[i].projectName === project.projectName)
+                && setProjectExists(res.data.esteProjectId[i])
+            })
+        }
+        savedProjects()
+    },[user, project.projectName, load])
+    
+    async function updateProject(){
+        if(projectExists.projectName === project.projectName){
+            console.log('cant')
+        } else {
+            await axios.post(`${BASE_URL}/project`, project)
+            setLoad(!load)
+        }
     }
+    console.log(project)
 
 
     
