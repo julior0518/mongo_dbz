@@ -3,11 +3,11 @@ import { BASE_URL } from './globals'
 import axios from 'axios';
 import { Route, Switch} from 'react-router-dom'
 
-import CreateModel from './components/CreateModel';
 import { useEffect } from 'react';
 
 
 import GoogleLogInOut from './components/googleLogInOut';
+import Project from './components/Project';
 
 function App() {
     // const axios = require('axios');
@@ -22,7 +22,7 @@ function App() {
     return (
       <div className="App">
         <GoogleLogInOut />
-        <CreateModel />
+        <Project />
 
 
         <Switch>

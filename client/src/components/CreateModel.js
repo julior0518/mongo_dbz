@@ -1,39 +1,39 @@
 import {useState} from 'react'
 import InputDynamic from './InputDynamic'
 
-function CreateModel() {
-    const [load, setLoad] = useState(false)
-    const [allKeys, setAllKeys] = useState([])
-    const [title, setTiltle] = useState("")
-
+function CreateModel({project , setProject, allKeys, setAllKeys,load, setLoad}) {
+    const title = project.modelTitle
     function set(e){
-        setTiltle(e.target.value)
+        setProject({...project, [e.target.name]:e.target.value, })
     }
-    
-    
-    console.log( allKeys)
-
-    
+    // setProject({modelKeys: allKeys})
     return(
         <div className="CreateModel">
+            <input
+                value={project.projectName}
+                name="projectName"
+                placeholder="project name"
+                onChange={(e) => set(e)}
+                required
+            />
+            <input
+                value={project.modelTitle}
+                name="modelTitle"
+                placeholder="Model Title"
+                onChange={(e) => set(e)}
+                required
+            />
             <div className='modelsIndex'>
                 <p>const mongoose = require('mongoose');</p>
                 <p>const {title}Schema = require('./{title}');</p>
                 <p>const {title} = mongoose.model('{title}s', {title}Schema);</p>
                 <p>module.exports = {`{${title},}`} </p>
             </div>
-            <input
-                value={title}
-                name="title"
-                placeholder="title"
-                onChange={(e) => set(e)}
-                required
-            />
-            <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys}/>
+            <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys} load={load} setLoad={setLoad} />
             <div>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
-                        <p onClick={()=> {allKeys.splice(i,1); setLoad(!load)}}>
+                        <p onClick={()=> {allKeys.splice(i,1); }}>
                             {`${k.key}`}
                         </p>
                     </div>
@@ -46,7 +46,6 @@ function CreateModel() {
                 <p> {`const ${title} = new Schema({ `} </p>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
-                        {console.log(k,i)}
                         <p>{`${k.key}: {${k.inputType}},`}</p>
                     </div>
                 ))}
