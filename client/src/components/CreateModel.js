@@ -41,14 +41,17 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
             <div className='modelsModel'>
                 <p>const mongoose = require('mongoose');</p>
                 <p>const Schema = mongoose.Schema;</p>
+                <br></br>
                 <p> {`const ${title} = new Schema({ `} </p>
+                <br></br>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
                         <p>{`${k.key}: {${k.inputType}},`}</p>
                     </div>
                 ))}
-                <p> {`},{ timestamp: true }); module.exports = ${title};`
-                } 
+                <br></br>
+                <p> 
+                    {`},{ timestamp: true }); module.exports = ${title};`} 
                 </p>
             </div>
             

@@ -31,7 +31,7 @@ function AllModels ({user}) {
                 ))}
             </div>
             <CreateModel allModels={allModels} setAllModels={setAllModels} model={model} setModel={setModel} load={load} setLoad={setLoad}  allKeys={allKeys} setAllKeys={setAllKeys}/>
-            <CreateControllers />
+            <CreateControllers allModels={allModels}/>
         </div>
     )
 }
