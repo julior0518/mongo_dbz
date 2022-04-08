@@ -7,7 +7,7 @@ import { useEffect, useState} from 'react';
 
 
 import GoogleLogInOut from './components/googleLogInOut';
-import Project from './components/Project';
+import AllModels from './components/AllModels';
 
 function App() {
   const [user, setUser]= useState()
@@ -23,8 +23,8 @@ function App() {
 
     return (
       <div className="App">
-          <GoogleLogInOut user={user} setUser={setUser} />
-        <Project user={user} setUser={setUser}/>
+        <GoogleLogInOut user={user} setUser={setUser} />
+        <AllModels user={user} />
 
 
         <Switch>

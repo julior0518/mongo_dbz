@@ -8,8 +8,7 @@ import {store} from "./state/store"
 
 
 const root= ReactDOM.createRoot(document.getElementById('root'));
-console.log(ReactDOM
-  )
+
 
 root.render(
   <React.StrictMode>

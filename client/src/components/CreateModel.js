@@ -1,22 +1,21 @@
 import InputDynamic from './InputDynamic'
 
-function CreateModel({model, setModel, load, setLoad, project , setProject, allKeys, setAllKeys, }) {
+function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  allKeys, setAllKeys, }) {
     const title = model.modelTitle
-    function set(e){
-        setProject({...project, [e.target.name]:e.target.value, })
-    }
     function setb(e){
         setModel({...model, [e.target.name]:e.target.value, })
     }
+
+    function addModel(){
+        setAllModels([...allModels, model])
+        setModel({
+            modelTitle:"",
+            modelKeys: []
+        })
+        setAllKeys([])
+    }
     return(
         <div className="CreateModel">
-            <input
-                value={project.projectName}
-                name="projectName"
-                placeholder="project name"
-                onChange={(e) => set(e)}
-                required
-            />
             <input
                 value={model.modelTitle}
                 name="modelTitle"
@@ -24,14 +23,10 @@ function CreateModel({model, setModel, load, setLoad, project , setProject, allK
                 onChange={(e) => setb(e)}
                 required
             />
-            <div className='modelsIndex'>
-                <p>const mongoose = require('mongoose');</p>
-                <p>const {title}Schema = require('./{title}');</p>
-                <p>const {title} = mongoose.model('{title}s', {title}Schema);</p>
-                <p>module.exports = {`{${title},}`} </p>
-            </div>
+            <button className='' onClick={()=>{addModel()}}>add model</button>
+            <h4>keys</h4>
             <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys}  />
-            <div>
+            <div className='modelsComponent'>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
                         <p onClick={()=> {allKeys.splice(i,1); setLoad(!load) }}>
@@ -41,6 +36,8 @@ function CreateModel({model, setModel, load, setLoad, project , setProject, allK
                     
                 ))}
             </div>
+            <h4>{`models/${model.modelTitle}.js`}</h4>
+            
             <div className='modelsModel'>
                 <p>const mongoose = require('mongoose');</p>
                 <p>const Schema = mongoose.Schema;</p>
@@ -53,6 +50,16 @@ function CreateModel({model, setModel, load, setLoad, project , setProject, allK
                 <p> {`},{ timestamp: true }); module.exports = ${title};`
                 } 
                 </p>
+            </div>
+            
+
+            <div className='modelsIndex'>
+                <h4>models/Index.js</h4>
+                <p>const mongoose = require('mongoose');</p>
+                <p>const {title}Schema = require('./{title}');</p>
+                {/* //for each model we need nee these */}
+                <p>const {title} = mongoose.model('{title}s', {title}Schema);</p>
+                <p>module.exports = {`{${title},}`} </p>
             </div>
         </div>
 
