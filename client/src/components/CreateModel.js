@@ -7,6 +7,8 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
     }
 
     function addModel(){
+        model.modelTitle 
+        &&
         setAllModels([...allModels, model])
         setModel({
             modelTitle:"",
