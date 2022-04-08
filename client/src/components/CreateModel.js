@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import InputDynamic from './InputDynamic'
 
 function CreateModel({model, setModel, load, setLoad, project , setProject, allKeys, setAllKeys, }) {

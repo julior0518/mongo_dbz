@@ -17,6 +17,8 @@ function Project ({user, setUser}) {
         projectName: "",
         model: [{}]
     })
+    
+
     useEffect(()=>{
         setModel({...model, modelKeys: allKeys})
     },[allKeys])
@@ -32,7 +34,6 @@ function Project ({user, setUser}) {
             // console.log(res1.data)
             const res =  await axios.get(`${BASE_URL}/project/${user?._id}`)
             setUsersProjects(res.data.esteProjectId)
-            console.log(usersProjects)
         }
         savedProjects()
     },[user, project.projectName, load])
@@ -41,15 +42,22 @@ function Project ({user, setUser}) {
             await axios.post(`${BASE_URL}/project`, project)
             setLoad(!load)
     }
-    console.log(project)
 
 
     
+    // function loadProject(up) {
+    //     console.log(...up.model)
+    //     setModel({...up.model})
+    //     console.log(model)
+    //     setLoad(!load)
+
+    // }
+
     return(
         <div className="Project">
             {user 
             && usersProjects.map((up,i)=>(
-            <div>
+            <div key={i} >
                 {up.projectName}
             </div>
             ))}

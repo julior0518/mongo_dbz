@@ -43,7 +43,7 @@ function InputDynamic ({ allKeys, setAllKeys, }){
                 <button onClick={(e)=>{submit(e)}}> add </button>
             </form>
         </div>
-    )
+    ) 
 }
 
 export default InputDynamic;
