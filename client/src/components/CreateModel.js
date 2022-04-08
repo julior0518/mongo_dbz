@@ -23,10 +23,10 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
                 onChange={(e) => setb(e)}
                 required
             />
-            <button className='' onClick={()=>{addModel()}}>add model</button>
+            <button className='' onClick={()=>{addModel()}}>add model</button>``
             <h4>keys</h4>
             <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys}  />
-            <div className='modelsComponent'>
+            <div className='listedModelsComponent'>
                 {allKeys.map((k, i)=>(
                     <div key={i}>
                         <p onClick={()=> {allKeys.splice(i,1); setLoad(!load) }}>
@@ -56,10 +56,25 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
             <div className='modelsIndex'>
                 <h4>models/Index.js</h4>
                 <p>const mongoose = require('mongoose');</p>
-                <p>const {title}Schema = require('./{title}');</p>
-                {/* //for each model we need nee these */}
-                <p>const {title} = mongoose.model('{title}s', {title}Schema);</p>
-                <p>module.exports = {`{${title},}`} </p>
+                {allModels.map((m, i)=>(
+                    <div key={i}>
+                        <p>const {m.modelTitle}Schema = require('./{m.modelTitle}');</p>
+                    </div>
+                ))}
+                <br></br>
+                {allModels.map((m, i)=>(
+                    <div key={i}>
+                        <p>const {m.modelTitle} = mongoose.model('{m.modelTitle}s', {m.modelTitle}Schema);</p>
+                    </div>
+                ))}
+                <br></br>
+                <p>{`{module.exports = { `}</p>
+                    {allModels.map((m, i)=>(
+                        <div key={i}>
+                            <p>{m.modelTitle},</p>
+                        </div>
+                    ))}
+                <p>{`}`}</p>
             </div>
         </div>
 

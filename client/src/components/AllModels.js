@@ -17,7 +17,7 @@ function AllModels ({user}) {
         setModel({...model, modelKeys: allKeys})
     },[allKeys])
     
-    console.log(allModels,model)
+    console.log(allModels,model,"AAA")
     return(
         <div className="AllModels">
             <div className='modelsComponent'>
