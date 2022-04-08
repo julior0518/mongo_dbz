@@ -6,8 +6,8 @@ import { Route, Switch} from 'react-router-dom'
 import { useEffect, useState} from 'react';
 
 
-import GoogleLogInOut from './components/googleLogInOut';
 import AllModels from './components/AllModels';
+import Navbar from './components/Navbar';
 
 function App() {
   const [user, setUser]= useState()
@@ -23,7 +23,8 @@ function App() {
 
     return (
       <div className="App">
-        <GoogleLogInOut user={user} setUser={setUser} />
+        <Navbar user={user} setUser={setUser}/>
+        
         <AllModels user={user} />
 
 

@@ -1,0 +1,16 @@
+*::-webkit-scrollbar {
+    display: none;
+}
+
+
+.Navbar{
+    margin: 2%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.AllModels{
+    margin: 2%;
+
+}
