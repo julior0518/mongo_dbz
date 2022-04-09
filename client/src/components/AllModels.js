@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import CreateModel from './CreateModel';
 import CreateControllers from './CreateControllers'
+import SavedModels from './SavedModels';
 
 
 function AllModels ({user, tab, load, setLoad}) {
@@ -16,7 +17,7 @@ function AllModels ({user, tab, load, setLoad}) {
         setModel({...model, modelKeys: allKeys})
     },[allKeys])
     
-    console.log(allModels,model,"AAA")
+    console.log(allModels)
     return(
         <div className="AllModels">
             <div className='modelsComponent'>
@@ -35,6 +36,9 @@ function AllModels ({user, tab, load, setLoad}) {
             }
             {(tab === "createControllers")
             && <CreateControllers allModels={allModels}/>
+            }
+            {(tab === "savedModels")
+            && <SavedModels />
             }
             
         </div>

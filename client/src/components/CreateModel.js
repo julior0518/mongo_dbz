@@ -60,9 +60,9 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
                             </div>
                         ))}
                         <br></br>
-                        <p> 
-                            {`},{ timestamp: true }); module.exports = ${title};`} 
-                        </p>
+                        <p> {`},`}</p>
+                        {`{ timestamp: true }); module.exports = ${title};`} 
+                        
                     </div>
                 </div>
                 

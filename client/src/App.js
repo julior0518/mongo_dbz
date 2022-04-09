@@ -29,7 +29,7 @@ function App() {
 
     return (
       <div className="App">
-        <Navbar setTab={setTab} user={user} setUser={setUser}/>
+        <Navbar tab={tab} setTab={setTab} user={user} setUser={setUser}/>
         <AllModels user={user} tab={tab} load={load} setLoad={setLoad}/>
         <GoogleLogInOut user={user} setUser={setUser} load={load} setLoad={setLoad}/>
 

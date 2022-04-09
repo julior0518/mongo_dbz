@@ -16,7 +16,7 @@
     background-color: rgb(28, 116, 79);
     border-radius: 0 10px 20px 0;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.274);
-    width: 4%;
+    width: 3%;
     height: 85vh;
     position: fixed;
     flex-direction: column;
@@ -30,7 +30,7 @@
     right: 2%
 }
 .AllModels{
-    padding: 1% 10vw;
+    padding: 1% 0 1% 10vw;
     width: 90vw;
 
 }
