@@ -22,7 +22,7 @@ function InputDynamic ({ allKeys, setAllKeys, }){
     }
     
     return (
-        <div className="InputDynamic">
+        <div className="InputDynamic ">
             <form>
                 <input
                     name="key"
@@ -30,17 +30,19 @@ function InputDynamic ({ allKeys, setAllKeys, }){
                     placeholder="key"
                     onChange={(e)=>add(e)}
                     required
+                    className='input'
+                    style={{width:"20%"}}
                 />
 
                 <label >Choose data type:</label>
-                <select value={keys.inputType || ''} id="inputType" required name="inputType" onChange={(e)=>add(e)}>
+                <select className='input'style={{width:"10%", margin:"0 1%", borderRadius: "0"}} value={keys.inputType || ''} id="inputType" required name="inputType" onChange={(e)=>add(e)}>
                     <option defaultValue={null}/>
                     <option value="type: Number,">Number</option>
                     <option value="type: Array,">Array</option>
                     <option value="type: String,">String</option>
                     <option value="type: Date,">Date</option>
                 </select>
-                <button onClick={(e)=>{submit(e)}}> add </button>
+                <button  className='inputButton' onClick={(e)=>{submit(e)}}> add </button>
             </form>
         </div>
     ) 

@@ -22,7 +22,7 @@ function AllModels ({user}) {
         <div className="AllModels">
             <div className='modelsComponent'>
                 {allModels.map((k, i)=>(
-                    <div key={i}>
+                    <div className='modelButton' key={i}>
                         <p onClick={()=> { allModels.splice(i,1); setLoad(!load) }}>
                             {`${k.modelTitle}`}
                         </p>

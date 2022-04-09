@@ -18,15 +18,17 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
     }
     return(
         <div className="CreateModel">
-            <input
-                value={model.modelTitle}
-                name="modelTitle"
-                placeholder="Model Title"
-                onChange={(e) => setb(e)}
-                required
-            />
-            <button className='' onClick={()=>{addModel()}}>add model</button>``
-            <h4>keys</h4>
+            <div className='nameModel'>
+                <input
+                    value={model.modelTitle}
+                    name="modelTitle"
+                    placeholder="New model title"
+                    onChange={(e) => setb(e)}
+                    required
+                    className='input'
+                />
+                <button className='inputButton' onClick={()=>{addModel()}}>add model</button>
+            </div>
             <InputDynamic allKeys={allKeys} setAllKeys={setAllKeys}  />
             <div className='listedModelsComponent'>
                 {allKeys.map((k, i)=>(
@@ -38,48 +40,51 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
                     
                 ))}
             </div>
-            <h4>{`models/${model.modelTitle}.js`}</h4>
-            
-            <div className='modelsModel'>
-                <p>const mongoose = require('mongoose');</p>
-                <p>const Schema = mongoose.Schema;</p>
-                <br></br>
-                <p> {`const ${title} = new Schema({ `} </p>
-                <br></br>
-                {allKeys.map((k, i)=>(
-                    <div key={i}>
-                        <p>{`${k.key}: {${k.inputType}},`}</p>
+            <div className='bottomLayout'>
+                <div className='modelsModel model'>
+                    <h4 className='title'>{`models/${model.modelTitle}.js`}</h4>
+                    <div className='renderCode'>
+                        <p>const mongoose = require('mongoose');</p>
+                        <p>const Schema = mongoose.Schema;</p>
+                        <br></br>
+                        <p> {`const ${title} = new Schema({ `} </p>
+                        <br></br>
+                        {allKeys.map((k, i)=>(
+                            <div key={i}>
+                                <p>{`${k.key}: {${k.inputType}},`}</p>
+                            </div>
+                        ))}
+                        <br></br>
+                        <p> 
+                            {`},{ timestamp: true }); module.exports = ${title};`} 
+                        </p>
                     </div>
-                ))}
-                <br></br>
-                <p> 
-                    {`},{ timestamp: true }); module.exports = ${title};`} 
-                </p>
-            </div>
-            
+                </div>
+                
 
-            <div className='modelsIndex'>
-                <h4>models/Index.js</h4>
-                <p>const mongoose = require('mongoose');</p>
-                {allModels.map((m, i)=>(
-                    <div key={i}>
-                        <p>const {m.modelTitle}Schema = require('./{m.modelTitle}');</p>
-                    </div>
-                ))}
-                <br></br>
-                {allModels.map((m, i)=>(
-                    <div key={i}>
-                        <p>const {m.modelTitle} = mongoose.model('{m.modelTitle}s', {m.modelTitle}Schema);</p>
-                    </div>
-                ))}
-                <br></br>
-                <p>{`{module.exports = { `}</p>
+                <div className='modelsIndex model'>
+                    <h4>models/Index.js</h4>
+                    <p>const mongoose = require('mongoose');</p>
                     {allModels.map((m, i)=>(
                         <div key={i}>
-                            <p>{m.modelTitle},</p>
+                            <p>const {m.modelTitle}Schema = require('./{m.modelTitle}');</p>
                         </div>
                     ))}
-                <p>{`}`}</p>
+                    <br></br>
+                    {allModels.map((m, i)=>(
+                        <div key={i}>
+                            <p>const {m.modelTitle} = mongoose.model('{m.modelTitle}s', {m.modelTitle}Schema);</p>
+                        </div>
+                    ))}
+                    <br></br>
+                    <p>{`{module.exports = { `}</p>
+                        {allModels.map((m, i)=>(
+                            <div key={i}>
+                                <p>{m.modelTitle},</p>
+                            </div>
+                        ))}
+                    <p>{`}`}</p>
+                </div>
             </div>
         </div>
 

@@ -5,7 +5,6 @@ function Navbar({user, setUser}){
 
     return (
         <div className="Navbar">
-            Holass
             <GoogleLogInOut user={user} setUser={setUser} />
         </div>
     )

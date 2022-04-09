@@ -1,16 +1,79 @@
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
     display: none;
+    
+} */
+
+.App{
+    padding-top: 2%;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    display: flex;
 }
-
-
 .Navbar{
-    margin: 2%;
-    padding: 1%;
+    margin: 0 2% 0 0 ;
+    padding: 2%;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
-}
-.AllModels{
-    margin: 2%;
+    background-color: rgb(197, 196, 250);
+    border-radius: 0 10px 20px 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.274);
+    width: 15%;
+    height: 80vh;
 
 }
+.AllModels{
+    width: 80%;
+}
+
+.modelsComponent{
+    display: flex;
+
+}
+
+.modelButton{
+    margin: 0 1% 2% 0;
+    padding: 0% 4%;
+    background-color: rgb(86, 85, 151);
+
+    border-radius:  10px;
+
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.274);
+
+}
+
+.input{
+    margin: 0 1% 0 0;
+    padding: 1% 2%;
+    border-radius:  10px 0 0 10px ;
+    width: 60%;
+    border: 2px solid rgba(88, 88, 88, 0.30);
+
+}
+.inputButton{
+    margin: 0 1% 0 0;
+    padding: 1% 2%;
+    border-radius:  0 10px 10px 0;
+    width: 30%;
+    border: 2px solid rgba(88, 88, 88, 0.10);
+    background-color: rgb(1, 0, 80);
+    color: rgb(255, 255, 255);
+
+}
+
+.InputDynamic{
+    margin-top: 2%;
+}
+
+.bottomLayout{
+    display: flex;
+}
+.model{
+    width: 50%;
+}
+.renderCode{
+    margin: 0 1% 0 0;
+    padding: 1% 2%;
+    border-radius:  10px 0 0 10px ;
+    border: 2px solid rgba(88, 88, 88, 0.30);
+} 
