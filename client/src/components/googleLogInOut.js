@@ -38,7 +38,6 @@ function GoogleLogInOut ({user, setUser, load, setLoad}) {
 
     }
     // console.log(localStorage, user )
-    console.log(user)
     
     return (
         <div className='login' >

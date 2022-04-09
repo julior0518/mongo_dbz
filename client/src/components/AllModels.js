@@ -17,7 +17,6 @@ function AllModels ({user, tab, load, setLoad}) {
         setModel({...model, modelKeys: allKeys})
     },[allKeys])
     
-    console.log(allModels)
     return(
         <div className="AllModels">
             <div className='modelsComponent'>
@@ -38,7 +37,7 @@ function AllModels ({user, tab, load, setLoad}) {
             && <CreateControllers allModels={allModels}/>
             }
             {(tab === "savedModels")
-            && <SavedModels />
+            && <SavedModels allModels={allModels}/>
             }
             
         </div>

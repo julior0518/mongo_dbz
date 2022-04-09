@@ -1,7 +1,6 @@
 
 
 function CreateControllers({allModels}){
-    console.log(allModels)
 
     return (
         <div className="CreateControllers bottomLayout">
@@ -16,12 +15,12 @@ function CreateControllers({allModels}){
                     <br></br>
                     {allModels.map((m, i)=>(
                         <div>
-                            <p>{`router.post('/${m.modelTitle}', controllers.create${m.modelTitle});`}</p>
-                            <p>{`router.get('/${m.modelTitle}s', controllers.getAll${m.modelTitle}s);`}</p>
-                            <p>{`router.get('/${m.modelTitle}/:id', controllers.get${m.modelTitle}sById)`}</p>
-                            <p>{`router.put('/${m.modelTitle}/:id', controllers.update${m.modelTitle});)`}</p>
-                            <p>{`router.delete('/${m.modelTitle}t/:id', controllers.delete${m.modelTitle});`}</p>
-                            <br></br>
+                            <p style={{fontWeight: "bold"}}>{`router.post('/${m.modelTitle}', controllers.create${m.modelTitle});`}</p>
+                            <p style={{fontWeight: "bold"}}>{`router.get('/${m.modelTitle}s', controllers.getAll${m.modelTitle}s);`}</p>
+                            <p style={{fontWeight: "bold"}}>{`router.get('/${m.modelTitle}/:id', controllers.get${m.modelTitle}sById)`}</p>
+                            <p style={{fontWeight: "bold"}}>{`router.put('/${m.modelTitle}/:id', controllers.update${m.modelTitle});)`}</p>
+                            <p style={{fontWeight: "bold"}}>{`router.delete('/${m.modelTitle}t/:id', controllers.delete${m.modelTitle});`}</p>
+                            <br style={{fontWeight: "bold"}}></br>
                         </div>
                         
                     ))}
@@ -43,7 +42,7 @@ function CreateControllers({allModels}){
                     <br></br>
 
                     {allModels.map((m, i)=>(
-                        <div key={i}>
+                        <div style={{fontWeight: "bold"}} key={i}>
                             <p>{`const getAll${m.modelTitle}s = async (req, res) => {`}</p>
                             <p>{`try {`}</p>
                             <p>{`const todosLos${m.modelTitle}s = await ${m.modelTitle}.find();`}</p>
@@ -93,7 +92,7 @@ function CreateControllers({allModels}){
                     ))}
                     <p>{`module.exports = {`}</p>
                     {allModels.map((m, i)=>(
-                        <div>
+                        <div style={{fontWeight: "bold"}}>
                             {`
                                 getAll${m.modelTitle}s,
                                 create${m.modelTitle},

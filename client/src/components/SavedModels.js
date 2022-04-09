@@ -1,5 +1,6 @@
 
-function SavedModels () {
+function SavedModels ({allModels}) {
+    console.log(allModels)
 
     return(
         <div className="SavedModels">

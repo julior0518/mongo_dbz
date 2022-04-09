@@ -56,12 +56,12 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
                         <p> {`const ${title} = new Schema({ `} </p>
                         {allKeys.map((k, i)=>(
                             <div key={i}>
-                                <p>{`${k.key}: {${k.inputType}},`}</p>
+                                <p style={{fontWeight: "bold"}}>{`${k.key}: {${k.inputType}},`}</p>
                             </div>
                         ))}
+                        <p> {`},{ timestamp: true },);`}</p>
                         <br></br>
-                        <p> {`},`}</p>
-                        {`{ timestamp: true }); module.exports = ${title};`} 
+                        {` module.exports = ${title};`} 
                         
                     </div>
                 </div>
@@ -73,20 +73,20 @@ function CreateModel({allModels, setAllModels, model, setModel, load, setLoad,  
                         <p>const mongoose = require('mongoose');</p>
                         {allModels.map((m, i)=>(
                             <div key={i}>
-                                <p>const {m.modelTitle}Schema = require('./{m.modelTitle}');</p>
+                                <p style={{fontWeight: "bold"}}>const {m.modelTitle}Schema = require('./{m.modelTitle}');</p>
                             </div>
                         ))}
                         <br></br>
                         {allModels.map((m, i)=>(
                             <div key={i}>
-                                <p>const {m.modelTitle} = mongoose.model('{m.modelTitle}s', {m.modelTitle}Schema);</p>
+                                <p style={{fontWeight: "bold"}}>const {m.modelTitle} = mongoose.model('{m.modelTitle}s', {m.modelTitle}Schema);</p>
                             </div>
                         ))}
                         <br></br>
                         <p>{`module.exports = { `}</p>
                             {allModels.map((m, i)=>(
                                 <div key={i}>
-                                    <p>{m.modelTitle},</p>
+                                    <p style={{fontWeight: "bold"}}>{m.modelTitle},</p>
                                 </div>
                             ))}
                         <p>{`}`}</p>
