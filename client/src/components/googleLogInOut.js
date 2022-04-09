@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {GoogleLogin, GoogleLogout} from 'react-google-login'
+import {GoogleLogin, GoogleLogout, } from 'react-google-login'
 import { BASE_URL } from '../globals'
 
 
 
 
-function GoogleLogInOut ({user, setUser}) {
+function GoogleLogInOut ({user, setUser, load, setLoad}) {
     const clientId = process.env.REACT_APP_GOOGLE_OAUTH_ID
     function googleAccount(res) {
         localStorage.setItem('user',JSON.stringify(res.profileObj))
@@ -34,27 +34,37 @@ function GoogleLogInOut ({user, setUser}) {
     function logout(){
         localStorage.clear()
         console.log("loggedOut")
-        setUser()
+        setUser(false)
+
     }
     // console.log(localStorage, user )
-
+    console.log(user)
     
     return (
         <div className='login'>
-            <GoogleLogin 
+
+            {
+                !user
+                ?
+                <GoogleLogin 
                 clientId={clientId}
-                buttonText='Login'
+                buttonText='Signup/ Login'
                 onSuccess={googleAccount}
                 onFailure={googleAccount}
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
-            />
-            <GoogleLogout
+                // render={renderProps =>(<button onClick={renderProps.onClick} style={{border: "none",backgroundColor:"transparent", width: "5vw", height: "5vw"}}></button>)}
+                />
+                :
+                <GoogleLogout
                 clientId={clientId}
                 buttonText='Logout'
                 onLogoutSuccess={logout}
                 cookiePolicy={'single_host_origin'}
-            />
+                />
+            }
+            
+            
 
 
         </div>

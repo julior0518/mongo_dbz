@@ -3,8 +3,7 @@ import CreateModel from './CreateModel';
 import CreateControllers from './CreateControllers'
 
 
-function AllModels ({user, tab}) {
-    const [load, setLoad] = useState(false)
+function AllModels ({user, tab, load, setLoad}) {
     const [allKeys, setAllKeys] = useState([])
     const [model,setModel]=useState({
         modelTitle:"",
