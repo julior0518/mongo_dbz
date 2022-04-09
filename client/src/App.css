@@ -19,7 +19,7 @@
     height: 85vh;
     position: fixed;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 4%
 }
