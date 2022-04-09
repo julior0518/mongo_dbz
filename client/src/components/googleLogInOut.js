@@ -41,7 +41,7 @@ function GoogleLogInOut ({user, setUser, load, setLoad}) {
     console.log(user)
     
     return (
-        <div className='login'>
+        <div className='login' >
 
             {
                 !user
@@ -56,12 +56,15 @@ function GoogleLogInOut ({user, setUser, load, setLoad}) {
                 // render={renderProps =>(<button onClick={renderProps.onClick} style={{border: "none",backgroundColor:"transparent", width: "5vw", height: "5vw"}}></button>)}
                 />
                 :
-                <GoogleLogout
-                clientId={clientId}
-                buttonText='Logout'
-                onLogoutSuccess={logout}
-                cookiePolicy={'single_host_origin'}
-                />
+                <div style={{display:"flex",  justifyContent:'center', alignItems:"center"}}>
+                    <img style={{height:"6vh", marginRight: "1vw", borderRadius:"360px", opacity:"80%"}}src={user.image}/>
+                    <GoogleLogout
+                    clientId={clientId}
+                    buttonText='Logout'
+                    onLogoutSuccess={logout}
+                    cookiePolicy={'single_host_origin'}
+                    />
+                </div>
             }
             
             

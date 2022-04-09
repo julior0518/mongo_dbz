@@ -1,10 +1,11 @@
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
     display: none;
     
-} */
+}
 
 .App{
     padding-top: 3%;
+    height: 100vh;
     background-color: rgb(241, 241, 241);
     display: flex;
 }
