@@ -10,7 +10,9 @@ import AllModels from './components/AllModels';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [user, setUser]= useState()
+    const [tab,setTab]=useState("createModel")
+    const [user, setUser]= useState()
+
   
     // const axios = require('axios');
 
@@ -23,8 +25,8 @@ function App() {
 
     return (
       <div className="App">
-        <Navbar user={user} setUser={setUser}/>
-        <AllModels user={user} />
+        <Navbar setTab={setTab} user={user} setUser={setUser}/>
+        <AllModels user={user} tab={tab}/>
 
 
         <Switch>
