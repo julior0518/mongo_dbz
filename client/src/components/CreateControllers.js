@@ -14,7 +14,7 @@ function CreateControllers({allModels}){
                     <p>{"router.get('/', (req, res) => res.send('This is root!'));"}</p>
                     <br></br>
                     {allModels.map((m, i)=>(
-                        <div>
+                        <div key={i}>
                             <p style={{fontWeight: "bold"}}>{`router.post('/${m.modelTitle}', controllers.create${m.modelTitle});`}</p>
                             <p style={{fontWeight: "bold"}}>{`router.get('/${m.modelTitle}s', controllers.getAll${m.modelTitle}s);`}</p>
                             <p style={{fontWeight: "bold"}}>{`router.get('/${m.modelTitle}/:id', controllers.get${m.modelTitle}sById)`}</p>
@@ -92,7 +92,7 @@ function CreateControllers({allModels}){
                     ))}
                     <p>{`module.exports = {`}</p>
                     {allModels.map((m, i)=>(
-                        <div style={{fontWeight: "bold"}}>
+                        <div key={i} style={{fontWeight: "bold"}}>
                             {`
                                 getAll${m.modelTitle}s,
                                 create${m.modelTitle},
