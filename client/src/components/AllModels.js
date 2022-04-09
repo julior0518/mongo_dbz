@@ -4,6 +4,7 @@ import CreateControllers from './CreateControllers'
 
 
 function AllModels ({user}) {
+    const [tab,setTab]=useState("createModel")
     const [load, setLoad] = useState(false)
     const [allKeys, setAllKeys] = useState([])
     const [model,setModel]=useState({
@@ -21,6 +22,7 @@ function AllModels ({user}) {
     return(
         <div className="AllModels">
             <div className='modelsComponent'>
+                {allModels.length === 0 && <p  style={{margin:"3% 0%", opacity: "50%", }}>Create Models for Mongo DB</p>}
                 {allModels.map((k, i)=>(
                     <div className='modelButton' key={i}>
                         <p onClick={()=> { allModels.splice(i,1); setLoad(!load) }}>
@@ -30,8 +32,13 @@ function AllModels ({user}) {
                     
                 ))}
             </div>
-            <CreateModel allModels={allModels} setAllModels={setAllModels} model={model} setModel={setModel} load={load} setLoad={setLoad}  allKeys={allKeys} setAllKeys={setAllKeys}/>
-            <CreateControllers allModels={allModels}/>
+            {(tab === "createModel")
+            &&<CreateModel allModels={allModels} setAllModels={setAllModels} model={model} setModel={setModel} load={load} setLoad={setLoad}  allKeys={allKeys} setAllKeys={setAllKeys}/>
+            }
+            {(tab === "createControllers")
+            && <CreateControllers allModels={allModels}/>
+            }
+            
         </div>
     )
 }

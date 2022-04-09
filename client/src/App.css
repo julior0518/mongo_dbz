@@ -6,23 +6,26 @@
 .App{
     padding-top: 2%;
     background-color: rgb(255, 255, 255);
-    height: 100vh;
+    height: 95vh;
     display: flex;
 }
 .Navbar{
     margin: 0 2% 0 0 ;
-    padding: 2%;
+    padding: 1%;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(197, 196, 250);
+    background-color: rgb(28, 116, 79);
     border-radius: 0 10px 20px 0;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.274);
-    width: 15%;
-    height: 80vh;
+    width: 5%;
+    height: 90vh;
+    position: absolute;
 
 }
 .AllModels{
-    width: 80%;
+    padding: 1% 10vw;
+    width: 90vw;
+
 }
 
 .modelsComponent{
@@ -33,7 +36,7 @@
 .modelButton{
     margin: 0 1% 2% 0;
     padding: 0% 4%;
-    background-color: rgb(86, 85, 151);
+    background-color: rgb(74, 121, 101);
 
     border-radius:  10px;
 
@@ -42,38 +45,52 @@
 
 }
 
+.createModel{
+    width: 100%;
+}
 .input{
     margin: 0 1% 0 0;
     padding: 1% 2%;
-    border-radius:  10px 0 0 10px ;
+    border-radius:  10px;
     width: 60%;
     border: 2px solid rgba(88, 88, 88, 0.30);
 
 }
 .inputButton{
     margin: 0 1% 0 0;
-    padding: 1% 2%;
-    border-radius:  0 10px 10px 0;
-    width: 30%;
+    padding: 1%;
+    width: 5%;
+    border-radius:  10px;
+
     border: 2px solid rgba(88, 88, 88, 0.10);
-    background-color: rgb(1, 0, 80);
+    background-color: rgb(18, 71, 49);
     color: rgb(255, 255, 255);
 
 }
 
 .InputDynamic{
     margin-top: 2%;
+    justify-content: space-between;
 }
 
 .bottomLayout{
     display: flex;
+    border-radius: 10px;
+
 }
 .model{
-    width: 50%;
+    width: 40%;
+    margin: 0  2% 0 0;
+    padding: 0 2% 2%;
+    background-color: rgba(28, 116, 79, 0.151);;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    color: rgba(15, 73, 49, 0.80);
+
 }
 .renderCode{
-    margin: 0 1% 0 0;
+    margin:  1%  ;
     padding: 1% 2%;
-    border-radius:  10px 0 0 10px ;
-    border: 2px solid rgba(88, 88, 88, 0.30);
+    border-left: 4px solid rgb(28, 116, 79);
 } 
+
