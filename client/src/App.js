@@ -1,11 +1,9 @@
 import './App.css';
-import { BASE_URL } from './globals'
-import axios from 'axios';
-import { Route, Switch} from 'react-router-dom'
+import {  Switch} from 'react-router-dom'
 import GoogleLogInOut from './components/googleLogInOut';
+import logoFullColor from './assets/logoFullColor.png'
 
-
-import { useEffect, useState} from 'react';
+import {  useState} from 'react';
 
 
 import AllModels from './components/AllModels';
@@ -33,13 +31,13 @@ function App() {
         <AllModels user={user} tab={tab} load={load} setLoad={setLoad}/>
         <GoogleLogInOut user={user} setUser={setUser} load={load} setLoad={setLoad}/>
 
-
+        <img src={logoFullColor} style={{position:"fixed", bottom:"10px", left: "47%", opacity: "30%", width:"10%"}}/>
 
         <Switch>
           {/* <Route exact path="/" render={()=> <Test/>} /> */}
         </Switch>
 
-
+      
       </div>
     );
 }

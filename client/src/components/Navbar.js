@@ -15,7 +15,7 @@ function Navbar({user, tab, setTab}){
 
                 
             </div>
-            <img src={logoWhite} style={{width: "100%", borderTop: "4px solid rgb(39, 157, 108)", paddingTop:"2vh"}} onClick={()=>{setTab("createModel")}}></img>
+            <img src={logoWhite} style={{width: "120%", borderTop: "4px solid rgb(39, 157, 108)", paddingTop:"2vh"}} onClick={()=>{setTab("createModel")}}></img>
             
         </div>
     )
