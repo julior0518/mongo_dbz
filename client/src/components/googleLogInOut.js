@@ -7,7 +7,7 @@ import { BASE_URL } from '../globals'
 
 
 function GoogleLogInOut ({user, setUser, load, setLoad}) {
-    const clientId = process.env.REACT_APP_GOOGLE_OAUTH_ID
+    const clientId = "781947911055-rvm8o9sjdif57j6utvvl4ct1apc58ska.apps.googleusercontent.com"
     function googleAccount(res) {
         localStorage.setItem('user',JSON.stringify(res.profileObj))
         setUser ({
